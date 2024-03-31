@@ -1,0 +1,26 @@
+// Overlay
+$banner-overlay: -90deg, hsl(210, 13%, 3%) 0%, hsla(220, 17%, 7%, 0.116) 100%;
+$bottom-overlay: 180deg, hsla(250, 13%, 11%, 0), hsla(250, 13%, 11%, 1);
+
+// Font Style
+$ff-dm-sans: "DM Sans", sans-serif;
+
+// Shadows
+$shadow-1: 0 0.1rem 0.4rem hsla(0, 0%, 0%, 0.75);
+$shadow-2: 0 0.2rem 0.4rem hsla(350, 100%, 43%, 0.3);
+
+// Transitions
+$transition-short: 250ms ease;
+$transition-long: 500ms ease;
+
+// Media Breakpoints
+$bp-2500: 156.25em; // 1800px
+$bp-1800: 112.5em; // 1800px
+$bp-1200: 75em; // 1200px
+$bp-1100: 68.75em; // 1100px
+$bp-1000: 62.5em; // 1000px
+$bp-900: 56.25em; // 900px
+$bp-800: 50em; // 800px
+$bp-600: 37.5em; // 600px
+$bp-500: 31.25em; // 500px
+$bp-400: 25em; // 400px
