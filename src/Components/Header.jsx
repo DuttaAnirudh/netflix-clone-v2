@@ -1,5 +1,6 @@
 import HamburgerMenu from "./HamburgerMenu";
 import SearchBox from "./SearchBox";
+import NetflixLogo from "../assets/logo.svg";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
         <HamburgerMenu />
 
         <a href="#">
-          <img src="/src/assets/logo.svg" alt="Netflix Logo" className="logo" />
+          <img src={NetflixLogo} alt="Netflix Logo" className="logo" />
         </a>
       </div>
 
