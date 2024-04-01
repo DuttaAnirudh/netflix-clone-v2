@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Hero from "./Hero";
 import SideBar from "./Sidebar";
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
         <aside className="sidebar">
           <SideBar />
         </aside>
+
+        <div className="main">
+          <Hero />
+        </div>
       </div>
     </div>
   );

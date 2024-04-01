@@ -1,0 +1,23 @@
+.section-hero {
+  background-image: linear-gradient($banner-overlay),
+    url(../assets/slider-banner.jpg); //TEST
+  background-size: cover;
+  background-position: top;
+  border-radius: 2rem;
+  padding: 9rem 2rem;
+  position: relative;
+  height: 51vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+
+  @media only screen and (max-width: $bp-1000) {
+    margin-bottom: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-600) {
+    height: 80rem;
+  }
+}
