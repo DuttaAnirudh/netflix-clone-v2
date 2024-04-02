@@ -1,3 +1,5 @@
+import SearchIcon from "../assets/search.png";
+
 const SearchBox = () => {
   return (
     <div className="search__box">
@@ -10,11 +12,7 @@ const SearchBox = () => {
           id="search-box"
         />
 
-        <img
-          src="/src/assets/search.png"
-          alt="search"
-          className="search__icon"
-        />
+        <img src={SearchIcon} alt="search" className="search__icon" />
       </form>
     </div>
   );
