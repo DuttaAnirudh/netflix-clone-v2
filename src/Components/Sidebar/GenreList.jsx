@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import NavList from "./NavList";
-import { API_URL_GENRE, KEY } from "../constants";
+import { API_URL_GENRE, KEY } from "../../constants";
 
-const Sidebar = () => {
+const GenreList = ({ sectionName }) => {
   const [genreList, setGenreList] = useState(null);
 
   useEffect(() => {
@@ -22,11 +22,7 @@ const Sidebar = () => {
     fetchGenreList();
   }, []);
 
-  return (
-    <div className="sidebar__box">
-      <NavList title="Genre" sectionName="sidebar" data={genreList} />
-    </div>
-  );
+  return <NavList title="Genre" sectionName={sectionName} data={genreList} />;
 };
 
-export default Sidebar;
+export default GenreList;

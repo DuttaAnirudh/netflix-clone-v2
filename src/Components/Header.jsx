@@ -1,4 +1,4 @@
-import HamburgerMenu from "./HamburgerMenu";
+import HamburgerMenu from "./Sidebar/HamburgerMenu";
 import SearchBox from "./SearchBox";
 import NetflixLogo from "../assets/logo.svg";
 

@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Hero from "./Hero";
 import ShowcaseBox from "./ShowcaseBox";
-import SideBar from "./Sidebar";
+import SideBar from "./Sidebar/Sidebar";
 
 function App() {
   return (
