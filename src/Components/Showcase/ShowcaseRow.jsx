@@ -1,19 +1,20 @@
-import Carousel from "./Carousel";
+import Carousel from "../Carousel";
+import { API_URL_BASE_IMAGE } from "../../constants";
 
-const ShowcaseRow = ({ title }) => {
+const ShowcaseRow = ({ title, data }) => {
   return (
     <div className="slider mb-4" id="recommend-slider">
       {/* RECOMMEND TITLE */}
       <h2 className="heading-secondary mb-2">{title}</h2>
       <div className="slider-row slider-box" id="weekly-trending">
         {/* CONTAINER RECOMMENED*/}
-        {Array.from({ length: 10 }).map((_, i) => (
+        {data?.map((item, i) => (
           <Carousel
-            key={i}
-            imageSrc={"/src/assets/slider-control.jpg"}
-            movieName={" Puss in Boots: The Last Wish"}
-            rating={"7.5"}
-            year={"2021"}
+            key={item.id || i}
+            imageSrc={`${API_URL_BASE_IMAGE}${item.posterImg}`}
+            movieName={item.title}
+            rating={item.rating}
+            year={item.year}
           />
         ))}
       </div>
