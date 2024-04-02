@@ -1,0 +1,17 @@
+.slider-row {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  max-width: 158rem;
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+}

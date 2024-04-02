@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Hero from "./Hero";
+import ShowcaseBox from "./ShowcaseBox";
 import SideBar from "./Sidebar";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
         <div className="main">
           <Hero />
+          <ShowcaseBox />
         </div>
       </div>
     </div>
