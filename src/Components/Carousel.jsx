@@ -17,9 +17,9 @@ const Carousel = ({ imageSrc, movieName, rating, year }) => {
               alt="star"
               className="carousel__rating-star"
             />
-            <p className="paragraph paragraph--light">{rating}</p>
+            <p className="paragraph paragraph--light">{rating.toFixed(1)}</p>
           </div>
-          <p className="paragraph paragraph--light">{year}</p>
+          <p className="paragraph paragraph--light">{year.split("-").at(0)}</p>
         </div>
       </div>
     </div>
