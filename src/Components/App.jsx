@@ -1,5 +1,5 @@
 import Header from "./Header";
-import Hero from "./Hero";
+import Hero from "./Hero/Hero";
 import ShowcaseBox from "./Showcase/ShowcaseBox";
 import SideBar from "./Sidebar/Sidebar";
 
