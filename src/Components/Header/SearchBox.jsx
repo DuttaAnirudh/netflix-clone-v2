@@ -1,4 +1,4 @@
-import SearchIcon from "../assets/search.png";
+import SearchIcon from "../../assets/search.png";
 
 const SearchBox = () => {
   return (

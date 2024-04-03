@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Hero from "./Hero/Hero";
 import ShowcaseBox from "./Showcase/ShowcaseBox";
 import SideBar from "./Sidebar/Sidebar";

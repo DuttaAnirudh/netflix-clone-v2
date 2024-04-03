@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GenreList from "./GenreList";
+import GenreList from "../Sidebar/GenreList";
 
 const HamburgerMenu = ({ genreList }) => {
   const [menuOpen, setMenuOpen] = useState(false);

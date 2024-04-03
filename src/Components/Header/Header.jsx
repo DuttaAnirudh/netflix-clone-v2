@@ -1,6 +1,6 @@
-import HamburgerMenu from "./Sidebar/HamburgerMenu";
+import HamburgerMenu from "./HamburgerMenu";
 import SearchBox from "./SearchBox";
-import NetflixLogo from "../assets/logo.svg";
+import NetflixLogo from "../../assets/logo.svg";
 
 const Header = ({ genreList }) => {
   return (
