@@ -1,12 +1,15 @@
 import Carousel from "../Carousel";
 import { API_URL_BASE_IMAGE } from "../../constants";
+import SliderContainer from "../SliderContainer";
 
 const ShowcaseRow = ({ title, data }) => {
   return (
     <div className="slider mb-4" id="recommend-slider">
       {/* RECOMMEND TITLE */}
       <h2 className="heading-secondary mb-2">{title}</h2>
-      <div className="slider-row slider-box" id="weekly-trending">
+
+      {/* SLIDER */}
+      <SliderContainer className={"slider-row"}>
         {/* CONTAINER RECOMMENED*/}
         {data?.map((item, i) => (
           <Carousel
@@ -17,7 +20,7 @@ const ShowcaseRow = ({ title, data }) => {
             year={item.year}
           />
         ))}
-      </div>
+      </SliderContainer>
     </div>
   );
 };

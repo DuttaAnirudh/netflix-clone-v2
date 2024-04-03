@@ -1,10 +1,12 @@
 import { API_URL_BASE_IMAGE } from "../../constants";
+import SliderContainer from "../SliderContainer";
 
 const HeroSlider = ({ data, bannerMovieName, handleBannerMovie }) => {
   return (
     <div className="banner-slider">
       <div className="slider mb-4">
-        <div className="banner-row slider-box">
+        {/* SLIDER */}
+        <SliderContainer className={"banner-row"}>
           {data?.map((item, i) => (
             <div
               className={`banner__img-container ${
@@ -20,7 +22,7 @@ const HeroSlider = ({ data, bannerMovieName, handleBannerMovie }) => {
               />
             </div>
           ))}
-        </div>
+        </SliderContainer>
       </div>
     </div>
   );
