@@ -1,9 +1,9 @@
 import GenreList from "./GenreList";
 
-const Sidebar = () => {
+const Sidebar = ({ genreList }) => {
   return (
     <div className="sidebar__box">
-      <GenreList sectionName={"sidebar"} />
+      <GenreList genreList={genreList} sectionName={"sidebar"} />
     </div>
   );
 };

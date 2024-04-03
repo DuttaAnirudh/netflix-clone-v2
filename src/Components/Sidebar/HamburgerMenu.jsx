@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GenreList from "./GenreList";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ genreList }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleHamburgerClick = () => {
@@ -29,7 +29,7 @@ const HamburgerMenu = () => {
       {/* HAMBURGER CONTENT */}
       {menuOpen && (
         <nav className="navigation__nav">
-          <GenreList sectionName={"menu"} />
+          <GenreList sectionName={"menu"} genreList={genreList} />
         </nav>
       )}
     </div>

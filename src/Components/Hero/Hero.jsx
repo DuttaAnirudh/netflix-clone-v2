@@ -3,7 +3,7 @@ import MovieDetailTextbox from "../MovieDetailTextbox";
 import { useEffect, useState } from "react";
 import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../constants";
 
-const Hero = () => {
+const Hero = ({ genreList }) => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [bannerMovie, setBannerMovie] = useState([]);
   const [bannerBg, setBannerBg] = useState("");
@@ -18,12 +18,13 @@ const Hero = () => {
   useEffect(() => {
     const fetchPopularMovies = async () => {
       try {
+        if (!genreList) return;
+
         const res = await fetch(
           `${API_URL}/popular?language=en-US&page=1&api_key=${KEY}`
         );
 
         const data = await res.json();
-        console.log(data.results);
 
         const popularMovieList = data.results.map((movie) => {
           return {
@@ -38,6 +39,15 @@ const Hero = () => {
           };
         });
 
+        const genreMap = genreList?.reduce((acc, genre) => {
+          acc[genre.id] = genre.name;
+          return acc;
+        }, {});
+
+        popularMovieList.map((movie) => {
+          movie.genreID = movie.genreID.map((id) => genreMap[id]);
+        });
+
         setPopularMovies(popularMovieList);
         setBannerMovie(popularMovieList.at(0));
         setBannerBg(popularMovieList.at(0).backdropImg);
@@ -46,7 +56,7 @@ const Hero = () => {
       }
     };
     fetchPopularMovies();
-  }, []);
+  }, [genreList]);
 
   return (
     <section
