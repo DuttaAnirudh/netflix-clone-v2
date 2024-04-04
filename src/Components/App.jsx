@@ -3,9 +3,11 @@ import Header from "./Header/Header";
 import SideBar from "./Sidebar/Sidebar";
 import { API_URL_GENRE, KEY } from "../constants";
 import HomePage from "./HomePage";
+import ResultsPage from "./ResultsPage";
 
 function App() {
   const [genreList, setGenreList] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     const fetchGenreList = async () => {
@@ -24,7 +26,11 @@ function App() {
 
   return (
     <div className="container">
-      <Header genreList={genreList} />
+      <Header
+        genreList={genreList}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
 
       <div className="content">
         <aside className="sidebar">
@@ -32,7 +38,8 @@ function App() {
         </aside>
 
         <div className="main">
-          <HomePage genreList={genreList} />
+          {/* <HomePage genreList={genreList} /> */}
+          <ResultsPage searchValue={searchValue} />
         </div>
       </div>
     </div>

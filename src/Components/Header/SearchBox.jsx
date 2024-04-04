@@ -1,7 +1,7 @@
 import SearchIcon from "../../assets/search.png";
 import { useRef } from "react";
 
-const SearchBox = () => {
+const SearchBox = ({ searchValue, setSearchValue }) => {
   const formRef = useRef(null);
 
   const handleInputFocusOnClick = () => {
@@ -15,9 +15,11 @@ const SearchBox = () => {
           type="text"
           className="search__field"
           name="search"
+          value={searchValue}
           placeholder="Search any movies..."
           id="search-box"
           ref={formRef}
+          onChange={(e) => setSearchValue(e.target.value)}
         />
 
         <img

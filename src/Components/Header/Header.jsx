@@ -2,7 +2,7 @@ import HamburgerMenu from "./HamburgerMenu";
 import SearchBox from "./SearchBox";
 import NetflixLogo from "../../assets/logo.svg";
 
-const Header = ({ genreList }) => {
+const Header = ({ genreList, searchValue, setSearchValue }) => {
   return (
     <header className="header mb-4">
       <div className="header__navigation">
@@ -15,7 +15,7 @@ const Header = ({ genreList }) => {
       </div>
 
       {/* SEARCH BOX */}
-      <SearchBox />
+      <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
     </header>
   );
 };

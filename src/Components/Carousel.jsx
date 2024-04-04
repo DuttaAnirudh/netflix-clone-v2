@@ -1,14 +1,20 @@
 import RatingStar from "../assets/star.png";
 
-const Carousel = ({ imageSrc, movieName, rating, year }) => {
+const Carousel = ({
+  imageSrc,
+  movieName,
+  rating,
+  year,
+  sectionClassName = "carousel",
+}) => {
   return (
-    <div className="carousel__container">
+    <div className={`${sectionClassName}__container`}>
       <img
         src={imageSrc}
         alt={`${movieName} poster`}
         className="carousel__img"
       />
-      <div className="carousel__info-box">
+      <div className={`${sectionClassName}__info-box`}>
         <h3 className="heading-tertiary carousel__title">{movieName}</h3>
         <div className="carousel__rating-year">
           <div className="carousel__rating">
