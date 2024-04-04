@@ -4,6 +4,7 @@ import SideBar from "./Sidebar/Sidebar";
 import { API_URL_GENRE, KEY } from "../constants";
 import HomePage from "./HomePage";
 import ResultsPage from "./ResultsPage";
+import SelectedMoviePage from "./SelectedMoviePage";
 
 function App() {
   const [genreList, setGenreList] = useState(null);
@@ -39,7 +40,8 @@ function App() {
 
         <div className="main">
           {/* <HomePage genreList={genreList} /> */}
-          <ResultsPage searchValue={searchValue} />
+          {/* <ResultsPage searchValue={searchValue} /> */}
+          <SelectedMoviePage />
         </div>
       </div>
     </div>

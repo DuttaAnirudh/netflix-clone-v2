@@ -1,4 +1,4 @@
-.banner {
+.details {
   &__text-box {
     display: flex;
     flex-direction: column;
@@ -45,5 +45,49 @@
   &__btn-img {
     height: 2rem;
     width: 2rem;
+  }
+}
+
+.movie {
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.6rem;
+    max-width: 76%;
+
+    @media only screen and (max-width: $bp-800) {
+      max-width: 100%;
+
+      & > :nth-child(-n + 3) {
+        align-self: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2.5rem;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__rating-star {
+    width: 2rem;
+    height: 2rem;
+    transform: translateY(-1px);
+  }
+
+  &__cast {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
   }
 }
