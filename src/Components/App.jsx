@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import Header from "./Header/Header";
-import Hero from "./Hero/Hero";
-import ShowcaseBox from "./Showcase/ShowcaseBox";
 import SideBar from "./Sidebar/Sidebar";
 import { API_URL_GENRE, KEY } from "../constants";
+import HomePage from "./HomePage";
 
 function App() {
   const [genreList, setGenreList] = useState(null);
@@ -33,8 +32,7 @@ function App() {
         </aside>
 
         <div className="main">
-          <Hero genreList={genreList} />
-          <ShowcaseBox />
+          <HomePage genreList={genreList} />
         </div>
       </div>
     </div>
