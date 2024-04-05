@@ -9,6 +9,7 @@ import SelectedMoviePage from "./SelectedMoviePage";
 function App() {
   const [genreList, setGenreList] = useState(null);
   const [searchValue, setSearchValue] = useState("");
+  const [selectedMovieId, setSelectedMovieId] = useState("866398");
 
   useEffect(() => {
     const fetchGenreList = async () => {
@@ -41,7 +42,7 @@ function App() {
         <div className="main">
           {/* <HomePage genreList={genreList} /> */}
           {/* <ResultsPage searchValue={searchValue} /> */}
-          <SelectedMoviePage />
+          <SelectedMoviePage selectedMovieId={selectedMovieId} />
         </div>
       </div>
     </div>

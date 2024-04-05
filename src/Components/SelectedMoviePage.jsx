@@ -1,45 +1,71 @@
+import { useEffect, useState } from "react";
+import { API_URL, API_URL_BASE_IMAGE, KEY } from "../constants";
 import MovieDetailTextbox from "./MovieDetailTextbox";
-import MovieListBox from "./MovieListBox";
+import Credits from "./Credits";
 import VideoRow from "./VideoRow";
+import SimilarMoviesList from "./SimilarMoviesList";
 
-const SelectedMoviePage = () => {
+const SelectedMoviePage = ({ selectedMovieId }) => {
+  const [topLevelDetails, setTopLevelDetails] = useState("");
+
+  useEffect(() => {
+    const fetchMovieDetails = async () => {
+      try {
+        const res = await fetch(`${API_URL}/${selectedMovieId}?api_key=${KEY}`);
+        const data = await res.json();
+
+        const dataTopLevel = {
+          id: data.id,
+          adult: data.adult,
+          genre: data.genres.map((gen) => gen.name),
+          title: data.title,
+          overview: data.overview,
+          runtime: data.runtime,
+          year: data.release_date,
+          rating: data.vote_average,
+          posterImg: data.poster_path,
+        };
+        setTopLevelDetails(dataTopLevel);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchMovieDetails();
+  }, [selectedMovieId]);
+
   return (
     <>
       <section className="section-movie-details mb-4">
         <figure className="movie__poster">
           <img
-            src="/src/assets/slider-control.jpg"
-            alt="movie poster"
+            src={`${API_URL_BASE_IMAGE}${topLevelDetails.posterImg}`}
+            alt={`${topLevelDetails.title} poster`}
             className="movie__img"
           />
         </figure>
 
         <div className="movie__content">
+          {/* TOP LEVEL DETAILS */}
           <MovieDetailTextbox
             sectionClassName={"movie"}
-            movieName={"Puss in Boots: The Last Wish"}
-            year={"2022-12-1"}
-            rating={8.823}
-            genre={["Adventure", "animation", "comedy"]}
-            description={` Puss in Boots discovers that his passion for adventure has
-  taken its toll: He has burned through eight of his nine lives,
-  leaving him with only one life left. Puss sets out on an epic
-  journey to find the mythical Last Wish and restore his nine
-  lives.`}
-            duration={162}
-            director={`Ryan Coogler`}
-            cast={`Letitia Wright, Lupita Nyong'o, Danai Gurira, Winston Duke,
-  Dominique Thorne, Tenoch Huerta Mejía, Angela Bassett,
-  Florence Kasumba, Michaela Coel, Mabel Cadena`}
+            movieName={topLevelDetails.title}
+            year={topLevelDetails.year}
+            rating={topLevelDetails.rating}
+            genre={topLevelDetails.genre}
+            description={topLevelDetails.overview}
+            duration={topLevelDetails.runtime}
           />
 
-          {/* TRAILERS  */}
-          <VideoRow />
+          {/* MOVIE CAST */}
+          <Credits selectedMovieId={selectedMovieId} />
+
+          {/* MOVIE TRAILER, TEASER & CLIPS*/}
+          <VideoRow selectedMovieId={selectedMovieId} />
         </div>
       </section>
 
-      {/*  MOVIES GRID LIST */}
-      <MovieListBox />
+      {/*  SIMILAR MOVIES LIST */}
+      <SimilarMoviesList selectedMovieId={selectedMovieId} />
     </>
   );
 };

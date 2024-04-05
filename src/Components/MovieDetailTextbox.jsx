@@ -10,8 +10,6 @@ const MovieDetailTextbox = ({
   genre,
   description,
   duration,
-  director,
-  cast,
   button = false,
 }) => {
   return (
@@ -47,19 +45,6 @@ const MovieDetailTextbox = ({
       >
         {description}
       </p>
-      {cast && (
-        <div className={`${sectionClassName}__cast`}>
-          <p className="paragraph">Starring</p>
-          <p className="paragraph paragraph--light">{cast}</p>
-        </div>
-      )}
-
-      {director && (
-        <div className={`${sectionClassName}__cast mb-4`}>
-          <p className="paragraph">Directed By</p>
-          <p className="paragraph paragraph--light">{director}</p>
-        </div>
-      )}
 
       {button && (
         <Button
