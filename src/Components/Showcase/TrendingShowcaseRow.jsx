@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ShowcaseRow from "./ShowcaseRow";
 import { API_URL_TRENDING, KEY } from "../../constants";
 
-const TrendingShowcaseRow = ({ title }) => {
+const TrendingShowcaseRow = ({ title, setSelectedMovieId }) => {
   const [trendingList, setTrendingList] = useState(null);
 
   const timeFrame = "week";
@@ -34,7 +34,13 @@ const TrendingShowcaseRow = ({ title }) => {
     fetchTrendingMoviesList();
   }, []);
 
-  return <ShowcaseRow title={title} data={trendingList} />;
+  return (
+    <ShowcaseRow
+      title={title}
+      data={trendingList}
+      setSelectedMovieId={setSelectedMovieId}
+    />
+  );
 };
 
 export default TrendingShowcaseRow;

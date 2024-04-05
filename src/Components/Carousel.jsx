@@ -1,14 +1,23 @@
 import RatingStar from "../assets/star.png";
 
 const Carousel = ({
+  id,
   imageSrc,
   movieName,
   rating,
   year,
   sectionClassName = "carousel",
+  setSelectedMovieId,
 }) => {
+  const handleSelectedMovieId = (id) => {
+    setSelectedMovieId(id);
+  };
+
   return (
-    <div className={`${sectionClassName}__container`}>
+    <div
+      className={`${sectionClassName}__container`}
+      onClick={() => handleSelectedMovieId(id)}
+    >
       <img
         src={imageSrc}
         alt={`${movieName} poster`}

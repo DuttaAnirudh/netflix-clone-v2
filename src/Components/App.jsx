@@ -40,9 +40,18 @@ function App() {
         </aside>
 
         <div className="main">
-          {/* <HomePage genreList={genreList} /> */}
-          {/* <ResultsPage searchValue={searchValue} /> */}
-          <SelectedMoviePage selectedMovieId={selectedMovieId} />
+          {/* <HomePage
+            genreList={genreList}
+            setSelectedMovieId={setSelectedMovieId}
+          /> */}
+          {/* <ResultsPage
+            searchValue={searchValue}
+            setSelectedMovieId={setSelectedMovieId}
+          /> */}
+          {/* <SelectedMoviePage
+            selectedMovieId={selectedMovieId}
+            setSelectedMovieId={setSelectedMovieId}
+          /> */}
         </div>
       </div>
     </div>

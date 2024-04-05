@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MovieListBox from "./MovieListBox";
 import { API_URL_SEARCH, KEY } from "../constants";
 
-const ResultsPage = ({ searchValue }) => {
+const ResultsPage = ({ searchValue, setSelectedMovieId }) => {
   const [searchMovieList, setSearchMovieList] = useState(null);
 
   useEffect(() => {
@@ -49,7 +49,10 @@ const ResultsPage = ({ searchValue }) => {
         </p>
       </section>
       {/* MOVIES GRID LIST */}
-      <MovieListBox data={searchMovieList} />
+      <MovieListBox
+        data={searchMovieList}
+        setSelectedMovieId={setSelectedMovieId}
+      />
     </>
   );
 };

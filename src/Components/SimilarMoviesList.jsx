@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { API_URL, KEY } from "../constants";
 import MovieListBox from "./MovieListBox";
 
-const SimilarMoviesList = ({ selectedMovieId }) => {
+const SimilarMoviesList = ({ selectedMovieId, setSelectedMovieId }) => {
   const [similarMoviesData, setSimilarMoviesData] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,10 @@ const SimilarMoviesList = ({ selectedMovieId }) => {
 
   return (
     <>
-      <MovieListBox data={similarMoviesData} />
+      <MovieListBox
+        data={similarMoviesData}
+        setSelectedMovieId={setSelectedMovieId}
+      />
     </>
   );
 };

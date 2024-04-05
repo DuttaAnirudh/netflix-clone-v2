@@ -5,7 +5,7 @@ import Credits from "./Credits";
 import VideoRow from "./VideoRow";
 import SimilarMoviesList from "./SimilarMoviesList";
 
-const SelectedMoviePage = ({ selectedMovieId }) => {
+const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
   const [topLevelDetails, setTopLevelDetails] = useState("");
 
   useEffect(() => {
@@ -65,7 +65,10 @@ const SelectedMoviePage = ({ selectedMovieId }) => {
       </section>
 
       {/*  SIMILAR MOVIES LIST */}
-      <SimilarMoviesList selectedMovieId={selectedMovieId} />
+      <SimilarMoviesList
+        selectedMovieId={selectedMovieId}
+        setSelectedMovieId={setSelectedMovieId}
+      />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ShowcaseRow from "./ShowcaseRow";
 import { API_URL, KEY } from "../../constants";
 
-const TopRatedShowcaseRow = () => {
+const TopRatedShowcaseRow = ({ setSelectedMovieId }) => {
   const [topRatedMovies, setTopRatedMovies] = useState(null);
 
   useEffect(() => {
@@ -30,7 +30,13 @@ const TopRatedShowcaseRow = () => {
     fetchTopRatedMovies();
   }, []);
 
-  return <ShowcaseRow title={"Top Rated Movies"} data={topRatedMovies} />;
+  return (
+    <ShowcaseRow
+      title={"Top Rated Movies"}
+      data={topRatedMovies}
+      setSelectedMovieId={setSelectedMovieId}
+    />
+  );
 };
 
 export default TopRatedShowcaseRow;
