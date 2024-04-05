@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavList = ({ title, sectionName, data }) => {
   return (
     <div>
@@ -5,9 +7,9 @@ const NavList = ({ title, sectionName, data }) => {
       <ul className={`${sectionName}__list`} id={`${sectionName}-list-genre`}>
         {data?.map((item, i) => (
           <li className={`${sectionName}__item`} key={item.id || i}>
-            <a href="# " className={`${sectionName}__link`}>
+            <Link to={`/genre/${item.name}`} className={`${sectionName}__link`}>
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,6 +1,7 @@
 import HamburgerMenu from "./HamburgerMenu";
 import SearchBox from "./SearchBox";
 import NetflixLogo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 const Header = ({ genreList, searchValue, setSearchValue }) => {
   return (
@@ -9,9 +10,9 @@ const Header = ({ genreList, searchValue, setSearchValue }) => {
         {/* HAMBURGER MENU FOR SMALL SCREENS */}
         <HamburgerMenu genreList={genreList} />
 
-        <a href="#">
+        <Link to="/">
           <img src={NetflixLogo} alt="Netflix Logo" className="logo" />
-        </a>
+        </Link>
       </div>
 
       {/* SEARCH BOX */}

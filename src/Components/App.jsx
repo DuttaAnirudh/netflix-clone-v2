@@ -5,6 +5,7 @@ import { API_URL_GENRE, KEY } from "../constants";
 import HomePage from "./HomePage";
 import ResultsPage from "./ResultsPage";
 import SelectedMoviePage from "./SelectedMoviePage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [genreList, setGenreList] = useState(null);
@@ -40,18 +41,37 @@ function App() {
         </aside>
 
         <div className="main">
-          {/* <HomePage
-            genreList={genreList}
-            setSelectedMovieId={setSelectedMovieId}
-          /> */}
-          {/* <ResultsPage
-            searchValue={searchValue}
-            setSelectedMovieId={setSelectedMovieId}
-          /> */}
-          {/* <SelectedMoviePage
-            selectedMovieId={selectedMovieId}
-            setSelectedMovieId={setSelectedMovieId}
-          /> */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  genreList={genreList}
+                  setSelectedMovieId={setSelectedMovieId}
+                />
+              }
+            />
+            <Route
+              path="/genre/:query"
+              element={
+                <ResultsPage
+                  searchValue={searchValue}
+                  setSelectedMovieId={setSelectedMovieId}
+                />
+              }
+            />
+            <Route
+              path="/movie"
+              element={
+                <SelectedMoviePage
+                  selectedMovieId={selectedMovieId}
+                  setSelectedMovieId={setSelectedMovieId}
+                />
+              }
+            />
+          </Routes>
+
+          {/*  */}
         </div>
       </div>
     </div>
