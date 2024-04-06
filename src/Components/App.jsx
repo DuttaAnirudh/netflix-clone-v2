@@ -3,9 +3,9 @@ import Header from "./Header/Header";
 import SideBar from "./Sidebar/Sidebar";
 import { API_URL_GENRE, KEY } from "../constants";
 import HomePage from "./HomePage";
-import ResultsPage from "./ResultsPage";
 import SelectedMoviePage from "./SelectedMoviePage";
 import { Route, Routes } from "react-router-dom";
+import SearchResultsPage from "./SearchResultsPage";
 
 function App() {
   const [genreList, setGenreList] = useState(null);
@@ -52,9 +52,9 @@ function App() {
               }
             />
             <Route
-              path="/genre/:query"
+              path="/search"
               element={
-                <ResultsPage
+                <SearchResultsPage
                   searchValue={searchValue}
                   setSelectedMovieId={setSelectedMovieId}
                 />
