@@ -2,17 +2,23 @@ import HeroSlider from "./HeroSlider";
 import MovieDetailTextbox from "../MovieDetailTextbox";
 import { useEffect, useState } from "react";
 import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
-const Hero = ({ genreList }) => {
+const Hero = ({ genreList, setSelectedMovieId }) => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [bannerMovie, setBannerMovie] = useState([]);
   const [bannerBg, setBannerBg] = useState("");
+  const navigate = useNavigate();
 
   const handleBannerMovie = (id) => {
     const selectedMovie = popularMovies.find((movie) => movie.id === id);
-    console.log(selectedMovie);
     setBannerMovie(selectedMovie);
     setBannerBg(selectedMovie.backdropImg);
+  };
+
+  const handleWatchButtonRouting = () => {
+    setSelectedMovieId(bannerMovie.id);
+    navigate(`/movie/${bannerMovie.id}`);
   };
 
   useEffect(() => {
@@ -73,6 +79,7 @@ const Hero = ({ genreList }) => {
         rating={bannerMovie.rating}
         genre={bannerMovie.genreID}
         description={bannerMovie.overview}
+        buttonClickEvent={handleWatchButtonRouting}
       />
 
       {/* BANNER SLIDER  */}

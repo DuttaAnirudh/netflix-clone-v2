@@ -4,7 +4,7 @@ import ShowcaseBox from "./Showcase/ShowcaseBox";
 const HomePage = ({ genreList, setSelectedMovieId }) => {
   return (
     <>
-      <Hero genreList={genreList} />
+      <Hero genreList={genreList} setSelectedMovieId={setSelectedMovieId} />
       <ShowcaseBox setSelectedMovieId={setSelectedMovieId} />
     </>
   );

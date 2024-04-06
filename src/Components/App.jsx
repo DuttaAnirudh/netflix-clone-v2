@@ -11,7 +11,7 @@ import GenreSearchResults from "./GenreSearchResults";
 function App() {
   const [genreList, setGenreList] = useState(null);
   const [searchValue, setSearchValue] = useState("");
-  const [selectedMovieId, setSelectedMovieId] = useState("866398");
+  const [selectedMovieId, setSelectedMovieId] = useState("");
 
   useEffect(() => {
     const fetchGenreList = async () => {

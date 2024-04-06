@@ -1,6 +1,13 @@
-const Button = ({ classNameBtn, imageSrc, classNameImg, alt, children }) => {
+const Button = ({
+  classNameBtn,
+  imageSrc,
+  classNameImg,
+  alt,
+  children,
+  onClickEvent,
+}) => {
   return (
-    <button className={`btn ${classNameBtn}`}>
+    <button className={`btn ${classNameBtn}`} onClick={onClickEvent}>
       {imageSrc && (
         <span>
           <img src={imageSrc} className={classNameImg} alt={alt} />

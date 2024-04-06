@@ -11,6 +11,7 @@ const MovieDetailTextbox = ({
   description,
   duration,
   button = false,
+  buttonClickEvent,
 }) => {
   return (
     <div className={`${sectionClassName}__text-box`}>
@@ -52,6 +53,7 @@ const MovieDetailTextbox = ({
           imageSrc={PlayCircle}
           classNameImg={`${sectionClassName}__btn-img`}
           alt={"Watch Now Button"}
+          onClickEvent={buttonClickEvent}
         >
           Watch Now
         </Button>
