@@ -71,7 +71,7 @@ function App() {
             />
 
             <Route
-              path="/movie"
+              path="/movie/:id"
               element={
                 <SelectedMoviePage
                   selectedMovieId={selectedMovieId}

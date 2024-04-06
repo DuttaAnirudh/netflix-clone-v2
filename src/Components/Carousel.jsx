@@ -1,4 +1,5 @@
 import RatingStar from "../assets/star.png";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = ({
   id,
@@ -9,8 +10,11 @@ const Carousel = ({
   sectionClassName = "carousel",
   setSelectedMovieId,
 }) => {
+  const navigate = useNavigate();
+
   const handleSelectedMovieId = (id) => {
     setSelectedMovieId(id);
+    navigate(`/movie/${id}`);
   };
 
   return (
