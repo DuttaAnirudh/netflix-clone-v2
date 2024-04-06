@@ -6,6 +6,7 @@ import HomePage from "./HomePage";
 import SelectedMoviePage from "./SelectedMoviePage";
 import { Route, Routes } from "react-router-dom";
 import SearchResultsPage from "./SearchResultsPage";
+import GenreSearchResults from "./GenreSearchResults";
 
 function App() {
   const [genreList, setGenreList] = useState(null);
@@ -60,6 +61,14 @@ function App() {
                 />
               }
             />
+
+            <Route
+              path="/genre/:genreName"
+              element={
+                <GenreSearchResults setSelectedMovieId={setSelectedMovieId} />
+              }
+            />
+
             <Route
               path="/movie"
               element={
