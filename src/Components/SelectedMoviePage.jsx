@@ -4,14 +4,18 @@ import MovieDetailTextbox from "./MovieDetailTextbox";
 import Credits from "./Credits";
 import VideoRow from "./VideoRow";
 import SimilarMoviesList from "./SimilarMoviesList";
+import { useParams } from "react-router-dom";
 
 const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
   const [topLevelDetails, setTopLevelDetails] = useState("");
 
+  let { id } = useParams();
+  const movieID = selectedMovieId || id;
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const res = await fetch(`${API_URL}/${selectedMovieId}?api_key=${KEY}`);
+        const res = await fetch(`${API_URL}/${movieID}?api_key=${KEY}`);
         const data = await res.json();
 
         const dataTopLevel = {
@@ -31,7 +35,7 @@ const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
       }
     };
     fetchMovieDetails();
-  }, [selectedMovieId]);
+  }, [movieID]);
 
   return (
     <>
@@ -57,16 +61,16 @@ const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
           />
 
           {/* MOVIE CAST */}
-          <Credits selectedMovieId={selectedMovieId} />
+          <Credits selectedMovieId={movieID} />
 
           {/* MOVIE TRAILER, TEASER & CLIPS*/}
-          <VideoRow selectedMovieId={selectedMovieId} />
+          <VideoRow selectedMovieId={movieID} />
         </div>
       </section>
 
       {/*  SIMILAR MOVIES LIST */}
       <SimilarMoviesList
-        selectedMovieId={selectedMovieId}
+        selectedMovieId={movieID}
         setSelectedMovieId={setSelectedMovieId}
       />
     </>
