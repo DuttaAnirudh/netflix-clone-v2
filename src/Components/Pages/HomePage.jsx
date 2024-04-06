@@ -1,6 +1,6 @@
-import Hero from "./Hero/Hero";
-import TopRatedShowcaseRow from "./Hero/TopRatedShowcaseRow";
-import TrendingShowcaseRow from "./Hero/TrendingShowcaseRow";
+import Hero from "../Hero/Hero";
+import TopRatedShowcaseRow from "../Hero/TopRatedShowcaseRow";
+import TrendingShowcaseRow from "../Hero/TrendingShowcaseRow";
 
 const HomePage = ({ genreList, setSelectedMovieId }) => {
   return (

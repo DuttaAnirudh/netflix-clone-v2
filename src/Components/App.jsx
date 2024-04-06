@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import Header from "./Header/Header";
 import SideBar from "./Sidebar/Sidebar";
 import { API_URL_GENRE, KEY } from "../constants";
-import HomePage from "./HomePage";
-import SelectedMoviePage from "./SelectedMoviePage";
+import HomePage from "./Pages/HomePage";
+import SelectedMoviePage from "./Pages/SelectedMoviePage";
 import { Route, Routes } from "react-router-dom";
-import SearchResultsPage from "./SearchResultsPage";
-import GenreSearchResults from "./GenreSearchResults";
+import SearchResultsPage from "./Pages/SearchResultsPage";
+import GenreSearchResults from "./Pages/GenreSearchResults";
 
 function App() {
   const [genreList, setGenreList] = useState(null);

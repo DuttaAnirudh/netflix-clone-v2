@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { API_URL_SEARCH, KEY } from "../constants";
-import ResultsPage from "./ResultsPage";
+import { API_URL_SEARCH, KEY } from "../../constants";
+import ResultsPage from "../Assets/ResultsPage";
 
-const GenreSearchResults = ({ setSelectedMovieId }) => {
-  const [genreMovieList, setGenreMovieList] = useState([]);
-  let { genreName } = useParams();
+const SearchResultsPage = ({ searchValue, setSelectedMovieId }) => {
+  const [searchMovieList, setSearchMovieList] = useState(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchSearchedMovieList = async () => {
       try {
+        if (searchValue.length <= 2) return;
+
         const res = await fetch(
-          `${API_URL_SEARCH}?query=${genreName}&api_key=${KEY}`
+          `${API_URL_SEARCH}?query=${searchValue}&api_key=${KEY}`
         );
         const data = await res.json();
 
@@ -25,22 +27,26 @@ const GenreSearchResults = ({ setSelectedMovieId }) => {
           };
         });
 
-        setGenreMovieList(movieData);
+        setSearchMovieList(movieData);
       } catch (err) {
         console.error(err);
       }
     };
 
     fetchSearchedMovieList();
-  }, [genreName]);
+
+    return () => {
+      controller.abort();
+    };
+  }, [searchValue]);
 
   return (
     <ResultsPage
-      searchValue={genreName}
+      searchValue={searchValue}
       setSelectedMovieId={setSelectedMovieId}
-      data={genreMovieList}
+      data={searchMovieList}
     />
   );
 };
 
-export default GenreSearchResults;
+export default SearchResultsPage;

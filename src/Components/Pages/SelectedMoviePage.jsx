@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { API_URL, API_URL_BASE_IMAGE, KEY } from "../constants";
-import MovieDetailTextbox from "./MovieDetailTextbox";
-import Credits from "./Credits";
-import VideoRow from "./VideoRow";
-import SimilarMoviesList from "./SimilarMoviesList";
+import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../constants";
+import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
+import Credits from "../MovieDetails/Credits";
+import VideoRow from "../MovieDetails/VideoRow";
+import SimilarMoviesList from "../MovieDetails/SimilarMoviesList";
 import { useParams } from "react-router-dom";
 
 const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {

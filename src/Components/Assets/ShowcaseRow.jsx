@@ -1,5 +1,5 @@
 import Carousel from "./Carousel";
-import { API_URL_BASE_IMAGE } from "../constants";
+import { API_URL_BASE_IMAGE } from "../../constants";
 import SliderContainer from "./SliderContainer";
 
 const ShowcaseRow = ({ title, data, setSelectedMovieId }) => {

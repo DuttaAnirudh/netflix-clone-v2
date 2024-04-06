@@ -1,5 +1,5 @@
 import { API_URL_BASE_IMAGE } from "../../constants";
-import SliderContainer from "../SliderContainer";
+import SliderContainer from "../Assets/SliderContainer";
 
 const HeroSlider = ({ data, bannerMovieName, handleBannerMovie }) => {
   return (

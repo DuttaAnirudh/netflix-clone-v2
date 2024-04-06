@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SliderContainer from "./SliderContainer";
-import { API_URL, KEY } from "../constants";
+import SliderContainer from "../Assets/SliderContainer";
+import { API_URL, KEY } from "../../constants";
 
 const VideoRow = ({ selectedMovieId }) => {
   const [videoKeys, setVideoKeys] = useState([]);

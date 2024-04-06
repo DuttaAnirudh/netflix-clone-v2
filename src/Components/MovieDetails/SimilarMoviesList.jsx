@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { API_URL, KEY } from "../constants";
-import MovieListBox from "./MovieListBox";
+import { API_URL, KEY } from "../../constants";
+import MovieListBox from "../Assets/MovieListBox";
 
 const SimilarMoviesList = ({ selectedMovieId, setSelectedMovieId }) => {
   const [similarMoviesData, setSimilarMoviesData] = useState([]);

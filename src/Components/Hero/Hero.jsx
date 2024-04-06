@@ -1,5 +1,5 @@
 import HeroSlider from "./HeroSlider";
-import MovieDetailTextbox from "../MovieDetailTextbox";
+import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
 import { useEffect, useState } from "react";
 import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../constants";
 import { useNavigate } from "react-router-dom";
