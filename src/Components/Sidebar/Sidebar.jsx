@@ -1,9 +1,9 @@
-import GenreList from "./GenreList";
+import NavList from "./NavList";
 
 const Sidebar = ({ genreList }) => {
   return (
     <div className="sidebar__box">
-      <GenreList genreList={genreList} sectionName={"sidebar"} />
+      <NavList title="Genre" sectionName={"sidebar"} data={genreList} />
     </div>
   );
 };

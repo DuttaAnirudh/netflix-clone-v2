@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GenreList from "../Sidebar/GenreList";
+import NavList from "../Sidebar/NavList";
 
 const HamburgerMenu = ({ genreList }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +29,7 @@ const HamburgerMenu = ({ genreList }) => {
       {/* HAMBURGER CONTENT */}
       {menuOpen && (
         <nav className="navigation__nav">
-          <GenreList sectionName={"menu"} genreList={genreList} />
+          <NavList title="Genre" sectionName={"menu"} data={genreList} />
         </nav>
       )}
     </div>

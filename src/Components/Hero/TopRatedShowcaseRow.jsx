@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ShowcaseRow from "./ShowcaseRow";
+import ShowcaseRow from "../ShowcaseRow";
 import { API_URL, KEY } from "../../constants";
 
 const TopRatedShowcaseRow = ({ setSelectedMovieId }) => {
