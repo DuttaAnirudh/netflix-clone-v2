@@ -1,4 +1,4 @@
-import RatingStar from "../assets/star.png";
+import RatingStar from "../../assets/star.png";
 import { useNavigate } from "react-router-dom";
 
 const Carousel = ({

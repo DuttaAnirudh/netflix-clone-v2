@@ -1,5 +1,5 @@
-import PlayCircle from "../assets/play_circle.png";
-import RatingStar from "../assets/star.png";
+import PlayCircle from "../../assets/play_circle.png";
+import RatingStar from "../../assets/star.png";
 import Button from "./Button";
 
 const MovieDetailTextbox = ({

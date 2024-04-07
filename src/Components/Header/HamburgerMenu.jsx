@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavList from "../Sidebar/NavList";
+import { enablePageScroll, disablePageScroll } from "scroll-lock";
 
 const HamburgerMenu = ({ genreList }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const checkBoxRef = useRef("");
 
   const handleHamburgerClick = () => {
     setMenuOpen((show) => !show);
+    menuOpen ? enablePageScroll() : disablePageScroll();
+  };
+
+  const handleHamburgerMenuCloseOnClick = () => {
+    setMenuOpen(false);
+    checkBoxRef.current.checked = false;
   };
 
   return (
@@ -16,6 +24,7 @@ const HamburgerMenu = ({ genreList }) => {
           type="checkbox"
           id="navi-toggle"
           className="navigation__checkbox"
+          ref={checkBoxRef}
         />
         <label
           htmlFor="navi-toggle"
@@ -29,7 +38,12 @@ const HamburgerMenu = ({ genreList }) => {
       {/* HAMBURGER CONTENT */}
       {menuOpen && (
         <nav className="navigation__nav">
-          <NavList title="Genre" sectionName={"menu"} data={genreList} />
+          <NavList
+            title="Genre"
+            sectionName={"menu"}
+            data={genreList}
+            onClickEvent={handleHamburgerMenuCloseOnClick}
+          />
         </nav>
       )}
     </div>
