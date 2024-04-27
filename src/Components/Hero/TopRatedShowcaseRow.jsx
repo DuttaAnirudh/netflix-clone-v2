@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ShowcaseRow from "../Assets/ShowcaseRow";
-import { API_URL, KEY } from "../../constants";
+import { API_URL, KEY } from "../../utils/helpers";
 
 const TopRatedShowcaseRow = ({ setSelectedMovieId }) => {
   const [topRatedMovies, setTopRatedMovies] = useState(null);

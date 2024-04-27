@@ -1,7 +1,7 @@
 import HeroSlider from "./HeroSlider";
 import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
 import { useEffect, useState } from "react";
-import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../constants";
+import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
 
 const Hero = ({ genreList, setSelectedMovieId }) => {

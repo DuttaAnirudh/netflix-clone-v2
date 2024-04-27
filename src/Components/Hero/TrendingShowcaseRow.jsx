@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ShowcaseRow from "../Assets/ShowcaseRow";
-import { API_URL_TRENDING, KEY } from "../../constants";
+import { API_URL_TRENDING, KEY } from "../../utils/helpers";
 
 const TrendingShowcaseRow = ({ title, setSelectedMovieId }) => {
   const [trendingList, setTrendingList] = useState(null);

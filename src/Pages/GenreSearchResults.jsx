@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { API_URL_SEARCH, KEY } from "../../constants";
-import ResultsPage from "../Assets/ResultsPage";
+import { API_URL_SEARCH, KEY } from "../utils/helpers";
+import ResultsPage from "../Components/Assets/ResultsPage";
 
 const GenreSearchResults = ({ setSelectedMovieId }) => {
   const [genreMovieList, setGenreMovieList] = useState([]);

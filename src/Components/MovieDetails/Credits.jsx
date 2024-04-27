@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL, KEY } from "../../constants";
+import { API_URL, KEY } from "../../utils/helpers";
 
 const Credits = ({ selectedMovieId }) => {
   const [actorsData, setActorsData] = useState([]);

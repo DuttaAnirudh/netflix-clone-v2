@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { API_URL_SEARCH, KEY } from "../../constants";
-import ResultsPage from "../Assets/ResultsPage";
+import { API_URL_SEARCH, KEY } from "../utils/helpers";
+import ResultsPage from "../Components/Assets/ResultsPage";
 
 const SearchResultsPage = ({ searchValue, setSelectedMovieId }) => {
   const [searchMovieList, setSearchMovieList] = useState(null);

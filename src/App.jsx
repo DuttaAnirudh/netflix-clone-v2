@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Header from "./Header/Header";
-import SideBar from "./Sidebar/Sidebar";
-import { API_URL_GENRE, KEY } from "../constants";
+import Header from "./Components/Header/Header";
+import SideBar from "./Components/Sidebar/Sidebar";
+import { API_URL_GENRE, KEY } from "./utils/helpers";
 import HomePage from "./Pages/HomePage";
 import SelectedMoviePage from "./Pages/SelectedMoviePage";
 import { Route, Routes } from "react-router-dom";

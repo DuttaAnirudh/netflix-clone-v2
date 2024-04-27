@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL, KEY } from "../../constants";
+import { API_URL, KEY } from "../../utils/helpers";
 import MovieListBox from "../Assets/MovieListBox";
 
 const SimilarMoviesList = ({ selectedMovieId, setSelectedMovieId }) => {

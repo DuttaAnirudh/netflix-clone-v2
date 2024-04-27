@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../constants";
-import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
-import Credits from "../MovieDetails/Credits";
-import VideoRow from "../MovieDetails/VideoRow";
-import SimilarMoviesList from "../MovieDetails/SimilarMoviesList";
+import { API_URL, API_URL_BASE_IMAGE, KEY } from "../utils/helpers";
+import MovieDetailTextbox from "../Components/Assets/MovieDetailTextbox";
+import Credits from "../Components/MovieDetails/Credits";
+import VideoRow from "../Components/MovieDetails/VideoRow";
+import SimilarMoviesList from "../Components/MovieDetails/SimilarMoviesList";
 import { useParams } from "react-router-dom";
 
 const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
