@@ -1,11 +1,10 @@
 import HeroSlider from "./HeroSlider";
 import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
 import { useEffect, useState } from "react";
-import { API_URL, API_URL_BASE_IMAGE, KEY } from "../../utils/helpers";
+import { API_URL_BASE_IMAGE } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
 
-const Hero = ({ genreList, setSelectedMovieId }) => {
-  const [popularMovies, setPopularMovies] = useState([]);
+const Hero = ({ genreList, setSelectedMovieId, popularMovies }) => {
   const [bannerMovie, setBannerMovie] = useState([]);
   const [bannerBg, setBannerBg] = useState("");
   const navigate = useNavigate();
@@ -24,45 +23,14 @@ const Hero = ({ genreList, setSelectedMovieId }) => {
   useEffect(() => {
     const fetchPopularMovies = async () => {
       try {
-        if (!genreList) return;
-
-        const res = await fetch(
-          `${API_URL}/popular?language=en-US&page=1&api_key=${KEY}`
-        );
-
-        const data = await res.json();
-
-        const popularMovieList = data.results.map((movie) => {
-          return {
-            id: movie.id,
-            genreID: movie.genre_ids,
-            title: movie.title,
-            overview: movie.overview,
-            year: movie.release_date,
-            rating: movie.vote_average,
-            posterImg: movie.poster_path,
-            backdropImg: movie.backdrop_path,
-          };
-        });
-
-        const genreMap = genreList?.reduce((acc, genre) => {
-          acc[genre.id] = genre.name;
-          return acc;
-        }, {});
-
-        popularMovieList.map((movie) => {
-          movie.genreID = movie.genreID.map((id) => genreMap[id]);
-        });
-
-        setPopularMovies(popularMovieList);
-        setBannerMovie(popularMovieList.at(0));
-        setBannerBg(popularMovieList.at(0).backdropImg);
+        setBannerMovie(popularMovies.at(0));
+        setBannerBg(popularMovies.at(0).backdropImg);
       } catch (err) {
         console.error(err);
       }
     };
     fetchPopularMovies();
-  }, [genreList]);
+  }, [popularMovies]);
 
   return (
     <section
