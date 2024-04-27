@@ -51,7 +51,7 @@ const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
         <div className="movie__content">
           {/* TOP LEVEL DETAILS */}
           <MovieDetailTextbox
-            sectionClassName={"movie"}
+            type="secondary"
             movieName={topLevelDetails.title}
             year={topLevelDetails.year}
             rating={topLevelDetails.rating}

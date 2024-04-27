@@ -73,7 +73,6 @@ const Hero = ({ genreList, setSelectedMovieId }) => {
     >
       {/*  BANNER TEXT  */}
       <MovieDetailTextbox
-        button={true}
         movieName={bannerMovie.title}
         year={bannerMovie.year}
         rating={bannerMovie.rating}
