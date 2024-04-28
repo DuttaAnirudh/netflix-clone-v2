@@ -8,13 +8,12 @@ import {
   getTrendingMoviesList,
 } from "../services/apiRequests";
 
-const HomePage = ({ genreList, setSelectedMovieId }) => {
+const HomePage = ({ setSelectedMovieId }) => {
   const { popularMovies, topRatedMovies, trendingMovies } = useLoaderData();
 
   return (
     <>
       <Hero
-        genreList={genreList}
         setSelectedMovieId={setSelectedMovieId}
         popularMovies={popularMovies}
       />

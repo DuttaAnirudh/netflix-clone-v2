@@ -1,8 +1,12 @@
 import { useRef, useState } from "react";
 import NavList from "../Sidebar/NavList";
 import { enablePageScroll, disablePageScroll } from "scroll-lock";
+import { useSelector } from "react-redux";
+import { getGenre } from "../../slices/genreSlice";
 
-const HamburgerMenu = ({ genreList }) => {
+const HamburgerMenu = () => {
+  const genreList = useSelector(getGenre);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const checkBoxRef = useRef("");
 

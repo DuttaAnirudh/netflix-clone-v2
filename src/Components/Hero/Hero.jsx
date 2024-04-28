@@ -3,11 +3,26 @@ import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
 import { useEffect, useState } from "react";
 import { API_URL_BASE_IMAGE } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getGenre } from "../../slices/genreSlice";
 
-const Hero = ({ genreList, setSelectedMovieId, popularMovies }) => {
+const Hero = ({ setSelectedMovieId, popularMovies }) => {
+  const genreList = useSelector(getGenre);
+
   const [bannerMovie, setBannerMovie] = useState([]);
   const [bannerBg, setBannerBg] = useState("");
   const navigate = useNavigate();
+
+  const genreMap = genreList?.reduce((acc, genre) => {
+    acc[genre.id] = genre.name;
+    return acc;
+  }, {});
+
+  popularMovies.map((movie) => {
+    movie.genreNames = movie.genreID.map((id) => {
+      return genreMap[id];
+    });
+  });
 
   const handleBannerMovie = (id) => {
     const selectedMovie = popularMovies.find((movie) => movie.id === id);
@@ -21,15 +36,8 @@ const Hero = ({ genreList, setSelectedMovieId, popularMovies }) => {
   };
 
   useEffect(() => {
-    const fetchPopularMovies = async () => {
-      try {
-        setBannerMovie(popularMovies.at(0));
-        setBannerBg(popularMovies.at(0).backdropImg);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchPopularMovies();
+    setBannerMovie(popularMovies.at(0));
+    setBannerBg(popularMovies.at(0).backdropImg);
   }, [popularMovies]);
 
   return (
@@ -44,7 +52,7 @@ const Hero = ({ genreList, setSelectedMovieId, popularMovies }) => {
         movieName={bannerMovie.title}
         year={bannerMovie.year}
         rating={bannerMovie.rating}
-        genre={bannerMovie.genreID}
+        genre={bannerMovie.genreNames}
         description={bannerMovie.overview}
         buttonClickEvent={handleWatchButtonRouting}
       />
