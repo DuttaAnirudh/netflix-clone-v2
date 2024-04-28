@@ -1,36 +1,6 @@
-import { useEffect, useState } from "react";
 import SliderContainer from "../Assets/SliderContainer";
-import { API_URL, KEY } from "../../utils/helpers";
 
-const VideoRow = ({ selectedMovieId }) => {
-  const [videoKeys, setVideoKeys] = useState([]);
-
-  useEffect(() => {
-    const fetchMovieVideos = async () => {
-      try {
-        const res = await fetch(
-          `${API_URL}/${selectedMovieId}/videos?api_key=${KEY}`
-        );
-        const data = await res.json();
-
-        const movieVideos = data.results
-          .filter(
-            (vidInfo) =>
-              vidInfo.type === "Teaser" ||
-              vidInfo.type === "Trailer" ||
-              vidInfo.type === "Clip"
-          )
-          .map((vidInfo) => vidInfo.key);
-
-        setVideoKeys(movieVideos);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    fetchMovieVideos();
-  }, [selectedMovieId]);
-
+const VideoRow = ({ data }) => {
   return (
     <div className="section-trailer">
       {/* TRAILER SECTION TITLE  */}
@@ -39,7 +9,7 @@ const VideoRow = ({ selectedMovieId }) => {
       {/* ROW TRAILORS & CLIPS  */}
       <SliderContainer className={"trailer-row"}>
         {/* CONTAINER TRAILOR  */}
-        {videoKeys.map((key) => (
+        {data.map((key) => (
           <div className="trailer__card" key={key}>
             <iframe
               width="450"

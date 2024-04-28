@@ -7,6 +7,7 @@ import AppLayout from "./AppLayout";
 
 import { loader as genreListLoader } from "./AppLayout";
 import { loader as homepageLoader } from "./Pages/HomePage";
+import { loader as selectedMovieLoader } from "./Pages/SelectedMoviePage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/movie/:movieId",
         element: <SelectedMoviePage />,
+        loader: selectedMovieLoader,
       },
     ],
   },

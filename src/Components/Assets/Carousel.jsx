@@ -8,19 +8,17 @@ const Carousel = ({
   rating,
   year,
   sectionClassName = "carousel",
-  setSelectedMovieId,
 }) => {
   const navigate = useNavigate();
 
-  const handleSelectedMovieId = (id) => {
-    setSelectedMovieId(id);
+  const navigateToMoviePage = (id) => {
     navigate(`/movie/${id}`);
   };
 
   return (
     <div
       className={`${sectionClassName}__container`}
-      onClick={() => handleSelectedMovieId(id)}
+      onClick={() => navigateToMoviePage(id)}
     >
       <img
         src={imageSrc}

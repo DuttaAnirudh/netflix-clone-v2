@@ -1,41 +1,19 @@
-import { useEffect, useState } from "react";
-import { API_URL, API_URL_BASE_IMAGE, KEY } from "../utils/helpers";
+import { API_URL_BASE_IMAGE } from "../utils/helpers";
 import MovieDetailTextbox from "../Components/Assets/MovieDetailTextbox";
 import Credits from "../Components/MovieDetails/Credits";
 import VideoRow from "../Components/MovieDetails/VideoRow";
 import SimilarMoviesList from "../Components/MovieDetails/SimilarMoviesList";
-import { useParams } from "react-router-dom";
+import {
+  getMovieCast,
+  getMovieDetails,
+  getMovieVideos,
+  getSimilarMovies,
+} from "../services/apiRequests";
+import { useLoaderData } from "react-router-dom";
 
-const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
-  const [topLevelDetails, setTopLevelDetails] = useState("");
-
-  let { id } = useParams();
-  const movieID = selectedMovieId || id;
-
-  useEffect(() => {
-    const fetchMovieDetails = async () => {
-      try {
-        const res = await fetch(`${API_URL}/${movieID}?api_key=${KEY}`);
-        const data = await res.json();
-
-        const dataTopLevel = {
-          id: data.id,
-          adult: data.adult,
-          genre: data.genres.map((gen) => gen.name),
-          title: data.title,
-          overview: data.overview,
-          runtime: data.runtime,
-          year: data.release_date,
-          rating: data.vote_average,
-          posterImg: data.poster_path,
-        };
-        setTopLevelDetails(dataTopLevel);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchMovieDetails();
-  }, [movieID]);
+const SelectedMoviePage = () => {
+  const { topLevelDetails, credits, videoKeys, similarMoviesData } =
+    useLoaderData();
 
   return (
     <>
@@ -61,20 +39,26 @@ const SelectedMoviePage = ({ selectedMovieId, setSelectedMovieId }) => {
           />
 
           {/* MOVIE CAST */}
-          <Credits selectedMovieId={movieID} />
+          <Credits data={credits} />
 
           {/* MOVIE TRAILER, TEASER & CLIPS*/}
-          <VideoRow selectedMovieId={movieID} />
+          <VideoRow data={videoKeys} />
         </div>
       </section>
 
       {/*  SIMILAR MOVIES LIST */}
-      <SimilarMoviesList
-        selectedMovieId={movieID}
-        setSelectedMovieId={setSelectedMovieId}
-      />
+      <SimilarMoviesList data={similarMoviesData} />
     </>
   );
+};
+
+export const loader = async ({ params }) => {
+  const topLevelDetails = await getMovieDetails(params.movieId);
+  const credits = await getMovieCast(params.movieId);
+  const videoKeys = await getMovieVideos(params.movieId);
+  const similarMoviesData = await getSimilarMovies(params.movieId);
+
+  return { topLevelDetails, credits, videoKeys, similarMoviesData };
 };
 
 export default SelectedMoviePage;

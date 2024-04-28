@@ -1,7 +1,7 @@
 import Carousel from "./Carousel";
 import { API_URL_BASE_IMAGE } from "../../utils/helpers";
 
-const MovieListBox = ({ data, setSelectedMovieId }) => {
+const MovieListBox = ({ data }) => {
   return (
     <section className="grid-list">
       {data?.map(
@@ -15,7 +15,6 @@ const MovieListBox = ({ data, setSelectedMovieId }) => {
               rating={item.rating}
               year={item.year}
               sectionClassName="grid"
-              setSelectedMovieId={setSelectedMovieId}
             />
           )
       )}
