@@ -10,12 +10,20 @@ import { loader as homepageLoader } from "./Pages/HomePage";
 import { loader as selectedMovieLoader } from "./Pages/SelectedMoviePage";
 import { loader as searchQueryLoader } from "./Pages/SearchResultsPage";
 import { loader as searchGenreLoader } from "./Pages/GenreSearchResults";
+import Error from "./Components/Assets/Error";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     loader: genreListLoader,
-    errorElement: "SOMETHING WENT WRONG", //TEST
+    errorElement: (
+      <Error
+        message={
+          "Oops! Page not found. Please check the URL for any mistakes or try navigating back to the "
+        }
+        linkButton={"HomePage"}
+      />
+    ),
     children: [
       {
         path: "/",
@@ -26,7 +34,6 @@ const router = createBrowserRouter([
         path: "/search/:query",
         element: <SearchResultsPage />,
         loader: searchQueryLoader,
-        errorElement: "NO RESULTS. SEARCH FOR SOMETHING ELSE", //TEST
       },
       {
         path: "/genre/:genreName",

@@ -1,6 +1,11 @@
+import Error from "./Error";
 import MovieListBox from "./MovieListBox";
 
 const ResultsPage = ({ searchValue, data }) => {
+  if (data.length === 0) {
+    return <Error message={`No results for "${searchValue}"`} />;
+  }
+
   return (
     <>
       {/* SEARCH QUERY INPUT DETAILS */}
