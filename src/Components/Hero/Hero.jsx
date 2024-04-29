@@ -1,16 +1,17 @@
 import HeroSlider from "./HeroSlider";
 import MovieDetailTextbox from "../Assets/MovieDetailTextbox";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { API_URL_BASE_IMAGE } from "../../utils/helpers";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getGenre } from "../../slices/genreSlice";
 
-const Hero = ({ setSelectedMovieId, popularMovies }) => {
+const Hero = ({ popularMovies }) => {
   const genreList = useSelector(getGenre);
 
-  const [bannerMovie, setBannerMovie] = useState([]);
-  const [bannerBg, setBannerBg] = useState("");
+  const [bannerMovie, setBannerMovie] = useState(popularMovies.at(0));
+  const [bannerBg, setBannerBg] = useState(popularMovies.at(0).backdropImg);
+
   const navigate = useNavigate();
 
   const genreMap = genreList?.reduce((acc, genre) => {
@@ -31,14 +32,8 @@ const Hero = ({ setSelectedMovieId, popularMovies }) => {
   };
 
   const handleWatchButtonRouting = () => {
-    setSelectedMovieId(bannerMovie.id);
     navigate(`/movie/${bannerMovie.id}`);
   };
-
-  useEffect(() => {
-    setBannerMovie(popularMovies.at(0));
-    setBannerBg(popularMovies.at(0).backdropImg);
-  }, [popularMovies]);
 
   return (
     <section
