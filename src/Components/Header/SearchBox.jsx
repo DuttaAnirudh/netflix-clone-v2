@@ -1,17 +1,19 @@
 import SearchIcon from "../../assets/search.png";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const SearchBox = ({ searchValue, setSearchValue }) => {
+const SearchBox = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
+
+  const { query } = useParams();
 
   const handleInputFocusOnClick = () => {
     formRef.current.focus();
   };
 
-  const handleResultsOnInputFormChange = (value) => {
-    setSearchValue(value);
+  const handleNavigationOnSearch = (value) => {
+    if (value.length < 1) return;
     navigate(`/search/${value}`);
   };
 
@@ -22,11 +24,11 @@ const SearchBox = ({ searchValue, setSearchValue }) => {
           type="text"
           className="search__field"
           name="search"
-          value={searchValue}
+          defaultValue={query}
           placeholder="Search any movies..."
           id="search-box"
           ref={formRef}
-          onChange={(e) => handleResultsOnInputFormChange(e.target.value)}
+          onChange={(e) => handleNavigationOnSearch(e.target.value)}
         />
 
         <img

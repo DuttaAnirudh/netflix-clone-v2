@@ -8,11 +8,14 @@ import AppLayout from "./AppLayout";
 import { loader as genreListLoader } from "./AppLayout";
 import { loader as homepageLoader } from "./Pages/HomePage";
 import { loader as selectedMovieLoader } from "./Pages/SelectedMoviePage";
+import { loader as searchQueryLoader } from "./Pages/SearchResultsPage";
+import { loader as searchGenreLoader } from "./Pages/GenreSearchResults";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     loader: genreListLoader,
+    errorElement: "SOMETHING WENT WRONG", //TEST
     children: [
       {
         path: "/",
@@ -22,10 +25,13 @@ const router = createBrowserRouter([
       {
         path: "/search/:query",
         element: <SearchResultsPage />,
+        loader: searchQueryLoader,
+        errorElement: "NO RESULTS. SEARCH FOR SOMETHING ELSE", //TEST
       },
       {
         path: "/genre/:genreName",
         element: <GenreSearchResults />,
+        loader: searchGenreLoader,
       },
       {
         path: "/movie/:movieId",

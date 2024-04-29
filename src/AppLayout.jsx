@@ -23,10 +23,7 @@ const AppLayout = () => {
 
   return (
     <div className="container">
-      <Header
-      // searchValue={searchValue}
-      // setSearchValue={setSearchValue}
-      />
+      <Header />
 
       <div className="content">
         <aside className="sidebar">

@@ -1,6 +1,6 @@
 import MovieListBox from "./MovieListBox";
 
-const ResultsPage = ({ searchValue, setSelectedMovieId, data }) => {
+const ResultsPage = ({ searchValue, data }) => {
   return (
     <>
       {/* SEARCH QUERY INPUT DETAILS */}
@@ -11,7 +11,7 @@ const ResultsPage = ({ searchValue, setSelectedMovieId, data }) => {
         </p>
       </section>
       {/* MOVIES GRID LIST */}
-      <MovieListBox data={data} setSelectedMovieId={setSelectedMovieId} />
+      <MovieListBox data={data} />
     </>
   );
 };
