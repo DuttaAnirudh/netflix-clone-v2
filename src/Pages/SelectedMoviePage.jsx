@@ -8,7 +8,7 @@ import {
   getMovieDetails,
   getMovieVideos,
   getSimilarMovies,
-} from "../services/apiRequests";
+} from "../services/apiSelectedMovie";
 import { useLoaderData } from "react-router-dom";
 
 const SelectedMoviePage = () => {

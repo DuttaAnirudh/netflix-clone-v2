@@ -1,7 +1,7 @@
 import { Outlet, useLoaderData, useNavigation } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import SideBar from "./Components/Sidebar/Sidebar";
-import { getGenreList } from "./services/apiRequests";
+import { getGenreList } from "./services/apiHomepage";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { loadGenreList } from "./slices/genreSlice";

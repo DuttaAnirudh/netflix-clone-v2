@@ -1,7 +1,7 @@
 // import { useEffect } from "react";
 import ResultsPage from "../Components/Assets/ResultsPage";
 import { useLoaderData, useParams } from "react-router-dom";
-import { getSearchedMovieList } from "../services/apiSearchReaults";
+import { getSearchedMovieList } from "../services/apiSearchResults";
 
 const SearchResultsPage = () => {
   const searchMovieList = useLoaderData();

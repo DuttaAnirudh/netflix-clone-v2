@@ -6,7 +6,7 @@ import {
   getPopularMovies,
   getTopRatedMovies,
   getTrendingMoviesList,
-} from "../services/apiRequests";
+} from "../services/apiHomepage";
 
 const HomePage = ({ setSelectedMovieId }) => {
   const { popularMovies, topRatedMovies, trendingMovies } = useLoaderData();

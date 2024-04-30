@@ -4,8 +4,6 @@ let controller = null;
 
 export const getSearchedMovieList = async (query) => {
   try {
-    // if (query.length <= 1) return;
-
     // Abort previous fetch request if it exists
     if (controller) {
       controller.abort();
