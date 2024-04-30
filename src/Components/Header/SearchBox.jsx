@@ -1,10 +1,11 @@
 import SearchIcon from "../../assets/search.png";
-import { useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const SearchBox = () => {
   const formRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { query } = useParams();
 
@@ -16,6 +17,21 @@ const SearchBox = () => {
     if (value.length < 1) return;
     navigate(`/search/${value}`);
   };
+
+  useEffect(() => {
+    if (location.pathname === `/search/${query}`) {
+      window.onpopstate = () => {
+        navigate("/");
+      };
+    } else {
+      window.onpopstate = null;
+    }
+
+    // Clean up the effect
+    return () => {
+      window.onpopstate = null;
+    };
+  }, [location.pathname, navigate]);
 
   return (
     <div className="search__box">
