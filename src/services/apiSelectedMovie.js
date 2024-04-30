@@ -64,9 +64,11 @@ export const getMovieVideos = async (movieID) => {
   }
 };
 
-export const getSimilarMovies = async (movieID) => {
+export const getSimilarMovies = async (movieID, pageNum) => {
   try {
-    const res = await fetch(`${API_URL}/${movieID}/similar?api_key=${KEY}`);
+    const res = await fetch(
+      `${API_URL}/${movieID}/similar?api_key=${KEY}&page=${pageNum}`
+    );
     const data = await res.json();
 
     const similarMovieList = data.results.map((movie) => {
