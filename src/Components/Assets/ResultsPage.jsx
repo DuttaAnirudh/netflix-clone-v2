@@ -34,8 +34,8 @@ const ResultsPage = ({ data, totalPages, searchValue }) => {
       </section>
       {/* MOVIES GRID LIST */}
       <MovieListBox data={movieData} />
-      (
-      <Pagination totalPages={totalPages} handlePageClick={handlePageClick} />)
+
+      <Pagination totalPages={totalPages} handlePageClick={handlePageClick} />
     </>
   );
 };

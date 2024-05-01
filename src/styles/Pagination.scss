@@ -1,11 +1,9 @@
-// .pagination-container{
-//     margin-top: ;
-// }
-
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 
   &__item {
     margin-inline: 1.5rem;
