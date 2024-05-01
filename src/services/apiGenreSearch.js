@@ -5,6 +5,8 @@ export const getGenreRelatedMovieList = async (value) => {
     const res = await fetch(`${API_URL_SEARCH}?query=${value}&api_key=${KEY}`);
     const data = await res.json();
 
+    const totalPages = data.total_pages;
+
     const movieData = data.results.map((movie) => {
       return {
         id: movie.id,
@@ -15,7 +17,7 @@ export const getGenreRelatedMovieList = async (value) => {
       };
     });
 
-    return movieData;
+    return { movieData, totalPages };
   } catch (err) {
     console.error(err);
   }

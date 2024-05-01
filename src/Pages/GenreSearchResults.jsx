@@ -1,17 +1,35 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import ResultsPage from "../Components/Assets/ResultsPage";
 import { getGenreRelatedMovieList } from "../services/apiGenreSearch";
+import { useEffect } from "react";
+import { updateSearchData } from "../slices/searchDataSlice";
+import { useDispatch } from "react-redux";
 
 const GenreSearchResults = () => {
-  const genreMovieList = useLoaderData();
-  let { genreName } = useParams();
+  const { movieData, totalPages } = useLoaderData();
 
-  return <ResultsPage searchValue={genreName} data={genreMovieList} />;
+  const { genreName } = useParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateSearchData(movieData));
+  }, [movieData, dispatch]);
+
+  return (
+    <>
+      <ResultsPage
+        data={movieData}
+        totalPages={totalPages}
+        searchValue={genreName}
+      />
+    </>
+  );
 };
 
 export default GenreSearchResults;
 
 export const loader = async ({ params }) => {
-  const genreMovieList = await getGenreRelatedMovieList(params.genreName);
-  return genreMovieList;
+  const searchData = await getGenreRelatedMovieList(params.genreName);
+  return searchData;
 };

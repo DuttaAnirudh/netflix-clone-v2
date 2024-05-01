@@ -31,7 +31,7 @@ const SearchBox = () => {
     return () => {
       window.onpopstate = null;
     };
-  }, [location.pathname, navigate]);
+  }, [location.pathname, navigate, query]);
 
   return (
     <div className="search__box">
