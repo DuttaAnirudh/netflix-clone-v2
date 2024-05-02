@@ -2,7 +2,7 @@ import Carousel from "./Carousel";
 import { API_URL_BASE_IMAGE } from "../../utils/helpers";
 import SliderContainer from "./SliderContainer";
 
-const ShowcaseRow = ({ title, data, setSelectedMovieId }) => {
+const ShowcaseRow = ({ title, data }) => {
   return (
     <div className="slider mb-4" id="recommend-slider">
       {/* RECOMMEND TITLE */}
@@ -19,7 +19,6 @@ const ShowcaseRow = ({ title, data, setSelectedMovieId }) => {
             movieName={item.title}
             rating={item.rating}
             year={item.year}
-            setSelectedMovieId={setSelectedMovieId}
           />
         ))}
       </SliderContainer>

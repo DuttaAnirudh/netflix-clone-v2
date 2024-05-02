@@ -1,38 +1,31 @@
 import { useLoaderData } from "react-router-dom";
 import Hero from "../Components/Hero/Hero";
-import TopRatedShowcaseRow from "../Components/Hero/TopRatedShowcaseRow";
-import TrendingShowcaseRow from "../Components/Hero/TrendingShowcaseRow";
 import {
   getPopularMovies,
   getTopRatedMovies,
   getTrendingMoviesList,
+  getUpcomingMovies,
 } from "../services/apiHomepage";
 import HeroMenu from "../Components/Hero/HeroMenu";
+import ShowcaseRow from "../Components/Assets/ShowcaseRow";
 
-const HomePage = ({ setSelectedMovieId }) => {
-  const { popularMovies, topRatedMovies, trendingMovies } = useLoaderData();
+const HomePage = () => {
+  const { popularMovies, topRatedMovies, trendingMovies, upComingMovies } =
+    useLoaderData();
 
   return (
     <>
       <HeroMenu />
-      <Hero
-        setSelectedMovieId={setSelectedMovieId}
-        popularMovies={popularMovies}
-      />
+      <Hero popularMovies={popularMovies} />
       <section className="section-recommend">
         {/* SLIDER CONTAINER */}
-        <TrendingShowcaseRow
-          title={"Weekly Trending"}
-          setSelectedMovieId={setSelectedMovieId}
-          trendingMovies={trendingMovies}
-        />
+        <ShowcaseRow title={"🍿 Everyone's Watching"} data={trendingMovies} />
 
         {/* SLIDER CONTAINER */}
-        <TopRatedShowcaseRow
-          title={"Top Rated Movies"}
-          setSelectedMovieId={setSelectedMovieId}
-          topRatedMovies={topRatedMovies}
-        />
+        <ShowcaseRow title={"🔥 New & Hot"} data={upComingMovies} />
+
+        {/* SLIDER CONTAINER */}
+        <ShowcaseRow title={"⭐ Top Rated Ever"} data={topRatedMovies} />
       </section>
     </>
   );
@@ -42,8 +35,9 @@ export const loader = async () => {
   const popularMovies = await getPopularMovies();
   const topRatedMovies = await getTopRatedMovies();
   const trendingMovies = await getTrendingMoviesList();
+  const upComingMovies = await getUpcomingMovies();
 
-  return { popularMovies, topRatedMovies, trendingMovies };
+  return { popularMovies, topRatedMovies, trendingMovies, upComingMovies };
 };
 
 export default HomePage;

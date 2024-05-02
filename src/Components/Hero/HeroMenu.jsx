@@ -10,7 +10,7 @@ const HeroMenu = () => {
   };
 
   return (
-    <button className="hero-menu paragraph" onClick={handleShowCategories}>
+    <button className="hero-menu paragraph mb-2" onClick={handleShowCategories}>
       <span>Categories</span>{" "}
       <img src={downArrow} className="hero-menu__arrow" />
     </button>

@@ -87,3 +87,28 @@ export const getPopularMovies = async () => {
     console.error(err);
   }
 };
+
+export const getUpcomingMovies = async () => {
+  try {
+    const res = await fetch(`${API_URL}/upcoming?api_key=${KEY}`);
+
+    const data = await res.json();
+
+    const upcomingMoviesList = data.results.map((movie) => {
+      return {
+        id: movie.id,
+        genreID: movie.genre_ids,
+        title: movie.title,
+        overview: movie.overview,
+        year: movie.release_date,
+        rating: movie.vote_average,
+        posterImg: movie.poster_path,
+        backdropImg: movie.backdrop_path,
+      };
+    });
+
+    return upcomingMoviesList;
+  } catch (err) {
+    console.error(err);
+  }
+};
