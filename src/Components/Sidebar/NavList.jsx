@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NavList = ({ title, sectionName, data, onClickEvent }) => {
   return (
     <div>
-      <h3 className="heading-tertiary mb-2">{title}</h3>
+      {title && <h3 className="heading-tertiary mb-2">{title}</h3>}
       <ul className={`${sectionName}__list`} id={`${sectionName}-list-genre`}>
         {data?.map((item, i) => (
           <li

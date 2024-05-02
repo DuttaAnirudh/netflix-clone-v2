@@ -82,3 +82,23 @@ body {
 .text-center {
   text-align: center;
 }
+
+.gradient {
+  position: fixed;
+  bottom: 0;
+  height: 15%;
+  width: 100vw;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 0.5) 60%,
+    transparent
+  );
+  z-index: 200;
+}
+
+.disable-scroll {
+  height: 90vh !important;
+  overflow: hidden !important;
+}

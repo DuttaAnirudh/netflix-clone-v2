@@ -7,12 +7,14 @@ import {
   getTopRatedMovies,
   getTrendingMoviesList,
 } from "../services/apiHomepage";
+import HeroMenu from "../Components/Hero/HeroMenu";
 
 const HomePage = ({ setSelectedMovieId }) => {
   const { popularMovies, topRatedMovies, trendingMovies } = useLoaderData();
 
   return (
     <>
+      <HeroMenu />
       <Hero
         setSelectedMovieId={setSelectedMovieId}
         popularMovies={popularMovies}
