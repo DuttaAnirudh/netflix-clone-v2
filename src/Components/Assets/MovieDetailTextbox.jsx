@@ -1,5 +1,6 @@
 import PlayCircle from "../../assets/play_circle.png";
 import RatingStar from "../../assets/star.png";
+import AddToListButton from "./AddToListButton";
 import Button from "./Button";
 
 const MovieDetailTextbox = ({
@@ -23,15 +24,18 @@ const MovieDetailTextbox = ({
         </div>
         <div className="paragraph">{genre?.join(", ")}</div>
         <p className={`paragraph  mb-2`}>{description}</p>
-        <Button
-          classNameBtn={`details__btn`}
-          imageSrc={PlayCircle}
-          classNameImg={`details__btn-img`}
-          alt={"Watch Now Button"}
-          onClickEvent={buttonClickEvent}
-        >
-          Watch Now
-        </Button>
+        <div className="details__btn-row">
+          <Button
+            classNameBtn={`details__btn`}
+            imageSrc={PlayCircle}
+            classNameImg={`details__btn-img`}
+            alt={"Watch Now Button"}
+            onClickEvent={buttonClickEvent}
+          >
+            Watch Now
+          </Button>
+          <AddToListButton />
+        </div>
       </div>
     );
   }
@@ -50,6 +54,7 @@ const MovieDetailTextbox = ({
           <p className="paragraph">{duration}m</p>
           <p className="paragraph">{year?.split("-").at(0)}</p>
           <p className="paragraph paragraph--light">PG-13</p>
+          <AddToListButton />
         </div>
         <div className="paragraph">{genre?.join(", ")}</div>
         <p className={`paragraph  paragraph--light `}>{description}</p>

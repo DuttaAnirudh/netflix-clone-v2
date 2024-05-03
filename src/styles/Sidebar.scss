@@ -1,0 +1,18 @@
+.sidebar {
+  &__options {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1.5rem;
+    cursor: pointer;
+  }
+
+  &__option-img {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  &__options:hover &__option-text {
+    color: var(--clr-primary-light) !important;
+  }
+}

@@ -11,6 +11,7 @@ import { loader as selectedMovieLoader } from "./Pages/SelectedMoviePage";
 import { loader as searchQueryLoader } from "./Pages/SearchResultsPage";
 import { loader as searchGenreLoader } from "./Pages/GenreSearchResults";
 import Error from "./Components/Assets/Error";
+import MyList from "./Pages/MyList";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         path: "/movie/:movieId",
         element: <SelectedMoviePage />,
         loader: selectedMovieLoader,
+      },
+      {
+        path: "/mylist",
+        element: <MyList />,
       },
     ],
   },

@@ -31,15 +31,21 @@
     gap: 2rem;
   }
 
+  &__btn-row {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+
+    @media only screen and (max-width: $bp-600) {
+      margin-inline: auto;
+    }
+  }
+
   &__btn {
     display: flex;
     align-items: center;
     gap: 1rem;
     line-height: 0;
-
-    @media only screen and (max-width: $bp-600) {
-      align-self: center;
-    }
   }
 
   &__btn-img {
