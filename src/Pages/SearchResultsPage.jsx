@@ -4,6 +4,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import ResultsPage from "../Components/Assets/ResultsPage";
 import { getSearchedMovieList } from "../services/apiSearchResults";
 import { updateSearchData } from "../slices/searchDataSlice";
+import MenuTab from "../Components/Hero/MenuTab";
 
 const SearchResultsPage = () => {
   const { movieData, totalPages } = useLoaderData();
@@ -18,6 +19,7 @@ const SearchResultsPage = () => {
 
   return (
     <>
+      <MenuTab title="Categories" />
       <ResultsPage
         data={movieData}
         totalPages={totalPages}

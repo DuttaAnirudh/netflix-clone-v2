@@ -6,7 +6,7 @@ import {
   getTrendingMoviesList,
   getUpcomingMovies,
 } from "../services/apiHomepage";
-import HeroMenu from "../Components/Hero/HeroMenu";
+import MenuTab from "../Components/Hero/MenuTab";
 import ShowcaseRow from "../Components/Assets/ShowcaseRow";
 
 const HomePage = () => {
@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <>
-      <HeroMenu />
+      <MenuTab title="Categories" />
       <Hero popularMovies={popularMovies} />
       <section className="section-recommend">
         {/* SLIDER CONTAINER */}

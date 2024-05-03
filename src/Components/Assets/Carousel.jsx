@@ -24,6 +24,7 @@ const Carousel = ({
         src={imageSrc}
         alt={`${movieName} poster`}
         className="carousel__img"
+        loading="lazy"
       />
       <div className={`${sectionClassName}__info-box`}>
         <h3 className="heading-tertiary carousel__title">{movieName}</h3>
