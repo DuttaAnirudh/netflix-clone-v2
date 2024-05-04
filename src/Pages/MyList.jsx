@@ -14,7 +14,7 @@ const MyList = () => {
   }
   return (
     <div>
-      <MovieListBox data={myList} />
+      <MovieListBox className="justify-start" data={myList} />
     </div>
   );
 };

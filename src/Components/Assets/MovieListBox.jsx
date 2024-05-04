@@ -1,9 +1,9 @@
 import Carousel from "./Carousel";
 import { API_URL_BASE_IMAGE } from "../../utils/helpers";
 
-const MovieListBox = ({ data }) => {
+const MovieListBox = ({ className, data }) => {
   return (
-    <section className="grid-list">
+    <section className={`grid-list ${className || ""}`}>
       {data?.map(
         (item, i) =>
           item.posterImg && (

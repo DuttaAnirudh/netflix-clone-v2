@@ -49,10 +49,7 @@
 
     @media only screen and (max-width: $bp-600) {
       max-width: 18rem;
-    }
-
-    @media only screen and (max-width: $bp-500) {
-      max-width: 16rem;
+      justify-self: center;
     }
   }
 
