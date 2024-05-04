@@ -3,6 +3,7 @@ import genreReducer from "./slices/genreSlice";
 import similarMovieReducer from "./slices/similarMovieSlice";
 import searchDataReducer from "./slices/searchDataSlice";
 import showMenuReducer from "./slices/showMenuSlice";
+import myListReducer from "./slices/myListSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     similarMovie: similarMovieReducer,
     searchMovieData: searchDataReducer,
     showMenu: showMenuReducer,
+    myList: myListReducer,
   },
 });
 

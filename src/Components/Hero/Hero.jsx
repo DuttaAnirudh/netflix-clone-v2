@@ -34,7 +34,6 @@ const Hero = ({ popularMovies }) => {
   const handleWatchButtonRouting = () => {
     navigate(`/movie/${bannerMovie.id}`);
   };
-
   return (
     <section
       className="section-hero"
@@ -50,6 +49,7 @@ const Hero = ({ popularMovies }) => {
         genre={bannerMovie.genreNames}
         description={bannerMovie.overview}
         buttonClickEvent={handleWatchButtonRouting}
+        data={bannerMovie}
       />
 
       {/* BANNER SLIDER  */}

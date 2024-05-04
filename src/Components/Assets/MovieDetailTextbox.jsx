@@ -1,7 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
 import PlayCircle from "../../assets/play_circle.png";
 import RatingStar from "../../assets/star.png";
 import AddToListButton from "./AddToListButton";
 import Button from "./Button";
+import {
+  addToMyList,
+  deleteFromMyList,
+  fetchDetailsAndAddToMyList,
+} from "../../slices/myListSlice";
 
 const MovieDetailTextbox = ({
   type = "primary",
@@ -12,7 +18,34 @@ const MovieDetailTextbox = ({
   description,
   duration,
   buttonClickEvent,
+  data,
 }) => {
+  const myList = useSelector((store) => store.myList.movieList);
+  const dispatch = useDispatch();
+
+  // Checking if the current movie is 'my list'
+  const addedStatus = myList.some((movie) => movie.id === data.id);
+
+  const handleAddToListPrimary = () => {
+    const isInTheList = myList.some((item) => item.id === data.id);
+    if (isInTheList) {
+      dispatch(deleteFromMyList(data.id));
+    }
+    if (!isInTheList) {
+      dispatch(fetchDetailsAndAddToMyList(data.id));
+    }
+  };
+
+  const handleAddToListSecondary = () => {
+    const isInTheList = myList.some((item) => item.id === data.id);
+    if (isInTheList) {
+      dispatch(deleteFromMyList(data.id));
+    }
+    if (!isInTheList) {
+      dispatch(addToMyList(data));
+    }
+  };
+
   // HOME PAGE
   if (type === "primary") {
     return (
@@ -34,7 +67,10 @@ const MovieDetailTextbox = ({
           >
             Watch Now
           </Button>
-          <AddToListButton />
+          <AddToListButton
+            onClickEvent={handleAddToListPrimary}
+            addedStatus={addedStatus}
+          />
         </div>
       </div>
     );
@@ -54,7 +90,10 @@ const MovieDetailTextbox = ({
           <p className="paragraph">{duration}m</p>
           <p className="paragraph">{year?.split("-").at(0)}</p>
           <p className="paragraph paragraph--light">PG-13</p>
-          <AddToListButton />
+          <AddToListButton
+            onClickEvent={handleAddToListSecondary}
+            addedStatus={addedStatus}
+          />
         </div>
         <div className="paragraph">{genre?.join(", ")}</div>
         <p className={`paragraph  paragraph--light `}>{description}</p>

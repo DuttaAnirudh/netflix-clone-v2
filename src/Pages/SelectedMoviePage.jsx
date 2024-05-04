@@ -59,6 +59,7 @@ const SelectedMoviePage = () => {
             genre={topLevelDetails.genre}
             description={topLevelDetails.overview}
             duration={topLevelDetails.runtime}
+            data={topLevelDetails}
           />
 
           {/* MOVIE CAST */}
