@@ -4,7 +4,7 @@ import { getGenreRelatedMovieList } from "../services/apiGenreSearch";
 import { useEffect } from "react";
 import { updateSearchData } from "../slices/searchDataSlice";
 import { useDispatch } from "react-redux";
-import MenuTab from "../Components/Hero/MenuTab";
+import MenuTab from "../Components/Assets/MenuTab";
 
 const GenreSearchResults = () => {
   const { movieData, totalPages } = useLoaderData();

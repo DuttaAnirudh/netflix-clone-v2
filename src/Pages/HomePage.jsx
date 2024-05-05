@@ -6,7 +6,7 @@ import {
   getTrendingMoviesList,
   getUpcomingMovies,
 } from "../services/apiHomepage";
-import MenuTab from "../Components/Hero/MenuTab";
+import MenuTab from "../Components/Assets/MenuTab";
 import ShowcaseRow from "../Components/Assets/ShowcaseRow";
 
 const HomePage = () => {

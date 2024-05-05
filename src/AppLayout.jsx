@@ -6,9 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { loadGenreList } from "./slices/genreSlice";
 import Loader from "./Components/Assets/Loader";
-import NavList from "./Components/Sidebar/NavList";
-import { hideMenu } from "./slices/showMenuSlice";
-import closeIcon from "./assets/cross.svg";
+import CategoriesMenu from "./Components/Assets/CategoriesMenu";
 
 const AppLayout = () => {
   const genreList = useLoaderData();
@@ -26,10 +24,6 @@ const AppLayout = () => {
     dispatch(loadGenreList(genreList));
   }, [dispatch, genreList]);
 
-  const handleCloseMenu = () => {
-    dispatch(hideMenu());
-  };
-
   return (
     <div className={`container ${showMenuStatus ? "disable-scroll" : ""}`}>
       <Header />
@@ -42,21 +36,8 @@ const AppLayout = () => {
         <div className="main">{isLoading ? <Loader /> : <Outlet />}</div>
       </div>
 
-      {showMenuStatus && (
-        <nav className="categories">
-          <div className="categories__container">
-            <NavList
-              sectionName={"menu"}
-              data={genreList}
-              onClickEvent={handleCloseMenu}
-            />
-            <div className="gradient"></div>
-            <div className="categories__close" onClick={handleCloseMenu}>
-              <img src={closeIcon} className="categories__close-icon" />
-            </div>
-          </div>
-        </nav>
-      )}
+      {/* CATEGORIES MENU */}
+      {showMenuStatus && <CategoriesMenu />}
     </div>
   );
 };
