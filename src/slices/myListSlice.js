@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getMovieDetails } from "../services/apiSelectedMovie";
+import storage from "redux-persist/lib/storage";
+import persistReducer from "redux-persist/es/persistReducer";
 
 const initialState = {
   movieList: [],
@@ -34,4 +36,11 @@ const myListSlice = createSlice({
 
 export const { addToMyList, deleteFromMyList } = myListSlice.actions;
 
-export default myListSlice.reducer;
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, myListSlice.reducer);
+
+export default persistedReducer;

@@ -4,6 +4,7 @@ import similarMovieReducer from "./slices/similarMovieSlice";
 import searchDataReducer from "./slices/searchDataSlice";
 import showMenuReducer from "./slices/showMenuSlice";
 import myListReducer from "./slices/myListSlice";
+import persistStore from "redux-persist/es/persistStore";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,12 @@ const store = configureStore({
     showMenu: showMenuReducer,
     myList: myListReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;
+
+export const persistor = persistStore(store);
